@@ -1,0 +1,13 @@
+<div class="row container-fluid" >
+        <div class="col-md-3" *ngFor="let item of myProduct">
+        <div class="card" style="width: 18rem;">
+          <img [src]="item.image" class="card-img-top" alt="...">
+          <div class="card-body">
+              <h2>{{item.name | uppercase }}</h2>
+              <h3>${{item.price}}</h3>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <button class="btn btn-block btn-warning" *ngIf="item.isAvailable" [disabled]="!item.isAvailable">Visit Site</button>
+          </div>
+        </div>
+        </div>
+    </div>

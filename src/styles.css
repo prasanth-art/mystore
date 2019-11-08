@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    background-color: rgb(252, 252, 196);
+    
+}
+.row{
+    margin-top:0%;
+}
+.navbar-brand{
+    color:white !important;
+}
+.card{
+    margin-top:3%;
+}
+.card-img-top{
+    height:300px;
+}
+.card-body{
+    padding:0.25rem;
+}
+a.nav-link{
+    color:white !important;
+}
+.footer{
+    position: relative;
+    top:40px;
+    width:100%;
+    background-color: lightslategray;
+    border:1px solid white;
+    
+}
