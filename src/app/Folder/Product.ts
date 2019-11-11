@@ -5,4 +5,5 @@ export interface Product {
     imageAlt: string;
     isAvailable: boolean;
     price: number;
+    visit: string;
 }

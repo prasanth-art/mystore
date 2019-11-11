@@ -1,0 +1,10 @@
+<div class="card"  style="width: 18rem;" *ngIf='item'>
+        <img [src]="item.image" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h2>{{item.name | uppercase }}</h2>
+            <h3>${{item.price}}</h3>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <button type="button" class="btn btn-default btn-success">Add Cart</button>
+          <button class="btn btn-default btn-warning" routerLink="/ddd" *ngIf="item.isAvailable" [disabled]="!item.isAvailable">Visit Site</button>
+        </div>
+      </div>

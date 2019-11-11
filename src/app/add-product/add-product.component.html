@@ -1,0 +1,27 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+    <h2 style="color:red">ADD PRODUCTS</h2><br>
+        <div class="form-group">
+                <label for="exampleInputEmail1">Product</label>
+                <input type="email" class="form-control" formControlName="name" placeholder="Add product">
+                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Price</label>
+          <input type="text" class="form-control" formControlName="price" placeholder="Enter Price range">
+          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">ImageUrl</label>
+          <input type="text" class="form-control" formControlName="image" placeholder="Enter Image URL">
+        </div>
+        <div class="form-group">
+                <label for="exampleInputPassword1">Product Description</label>
+                <input type="text" class="form-control" formControlName="description" placeholder="Enter Product Description">
+              </div>
+        <div class="form-group form-check form-control">
+          <input type="checkbox" class="form-check-input" formControlName="isAvailable" >
+          <label class="form-check-label">Availablity</label>
+        </div>
+        <button type="submit" class="btn btn-primary" >Submit</button>
+      </form>
+      <!-- [disabled]="!myForm.valid" -->

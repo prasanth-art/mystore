@@ -3,6 +3,12 @@ body{
     background-color: rgb(252, 252, 196);
     
 }
+.but1{
+    margin-left: 35%;
+}
+.but2{
+    margin-left:550px;
+}
 .row{
     margin-top:0%;
 }
