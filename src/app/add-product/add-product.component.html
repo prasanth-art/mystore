@@ -1,27 +1,38 @@
-<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+<form [formGroup]="myForm">
     <h2 style="color:red">ADD PRODUCTS</h2><br>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Id</label>
+        <input type="number" class="form-control" formControlName="id" placeholder="enter id">
+        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+</div>
         <div class="form-group">
                 <label for="exampleInputEmail1">Product</label>
-                <input type="email" class="form-control" formControlName="name" placeholder="Add product">
+                <input type="text" class="form-control" formControlName="title" placeholder="Add product">
                 <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Price</label>
-          <input type="text" class="form-control" formControlName="price" placeholder="Enter Price range">
+          <input type="number" class="form-control" formControlName="price" placeholder="Enter Price range">
           <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">ImageUrl</label>
-          <input type="text" class="form-control" formControlName="image" placeholder="Enter Image URL">
+          <input type="url" class="form-control" formControlName="imageUrl" placeholder="Enter Image URL">
         </div>
         <div class="form-group">
                 <label for="exampleInputPassword1">Product Description</label>
                 <input type="text" class="form-control" formControlName="description" placeholder="Enter Product Description">
               </div>
-        <div class="form-group form-check form-control">
-          <input type="checkbox" class="form-check-input" formControlName="isAvailable" >
-          <label class="form-check-label">Availablity</label>
+        <!-- <div class="form-group form-check form-control"> -->
+          <!-- <input type="checkbox" class="form-check-input form-control" formControlName="isAvailable" >
+          <label class="form-check-label">Availablity</label> -->
+        <!-- </div> -->
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="isAvailable">
+          <label class="form-check-label" for="exampleCheck1">Availablity</label>
         </div>
-        <button type="submit" class="btn btn-primary" >Submit</button>
+        <button type="submit" class="btn btn-primary" (click)=onSubmit() [disabled]="!myForm.valid">Submit</button>
+        <button type="submit" class="btn btn-danger" (click)=del()>Delete</button>
+     
       </form>
       <!-- [disabled]="!myForm.valid" -->

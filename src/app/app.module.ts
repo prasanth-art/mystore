@@ -8,10 +8,13 @@ import { SaleComponent } from './sale/sale.component';
 import { FooterComponent } from './footer/footer.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { DetailsComponent } from './details/details.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 const appRoutes: Routes = [
   { path: '', component: SaleComponent },
   { path: 'add-product', component: AddProductComponent },
+  { path: 'add-product/:id', component: AddProductComponent },
   { path: 'ddd', component: DetailsComponent },
 ];
 
@@ -28,6 +31,7 @@ const appRoutes: Routes = [
     BrowserModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
+    HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]

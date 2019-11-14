@@ -8,9 +8,17 @@ import {ProductService} from '../services/product.service';
 })
 export class SaleComponent implements OnInit {
   Products;
+  ProductList: ArrayBuffer;
+  myForm: any;
 
   constructor(private productService: ProductService) {
-    this.Products = this.productService.getProducts();
+    this.productService.getProducts().subscribe(Response => {
+      this.Products = Response;
+    }
+    // this.productService.addProducts(this.myForm.value).subscribe(Response => {
+    //   this.ProductList = Response;
+    );
+
   }
 
 
