@@ -1,16 +1,17 @@
 
 <div class="card"  style="width: 18rem;" *ngIf='item'>
-        <img [src]="item.imageUrl" class="card-img-top" alt="...">
+        <img [src]="item.imageUrl" class="card-img-top" [routerLink]="['add-product',item.id]" alt="...">
         <div class="card-body">
             <h3>{{item.id}}</h3>
             <h2>{{item.title | uppercase }}</h2>
             <h3>${{item.price}}</h3>
           <p class="card-text">{{item.description}}</p>
           <button type="button" class="btn btn-default btn-warning" [routerLink]="['add-product',item.id]">Edit</button>
-          <button type="button" class="btn btn-default btn-success">Add Cart</button>
-          <button class="btn btn-default btn-warning" routerLink="/ddd" *ngIf="item.isAvailable" [disabled]="!item.isAvailable">Visit Site</button>
+          <button type="button" class="btn btn-default btn-success" (click)="updateCart()">Add Cart({{count}})</button>
+          <button type="button" class="btn btn-default btn-danger" (click)=deleted(item.id)>Delete</button>
+          <!-- <button class="btn btn-default btn-warning" *ngIf="item.isAvailable">Visit Site</button> -->
           <!-- <button type="button" class="btn btn-default btn-danger" (click)=del({{item}})>Delete</button> -->
         </div>
       </div>
 
-      
+      <!-- [routerLink]="['details',item.id]" -->

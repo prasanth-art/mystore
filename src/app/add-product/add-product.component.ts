@@ -2,6 +2,7 @@ import { Component, OnInit, OnChanges, DoCheck, AfterContentChecked } from '@ang
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ProductService } from '../services/product.service';
 import {ActivatedRoute} from '@angular/router';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-product',
@@ -14,10 +15,8 @@ export class AddProductComponent implements OnInit {
   id: number;
 
 
-  constructor(private Productlist: ProductService, private route: ActivatedRoute) {
-    // ((\d+)((\.\d{1,2})?))$
+  constructor(private Productlist: ProductService, private route: ActivatedRoute, private router: Router ) {
    }
-  //  Validators.pattern('[a-zA-Z]+$')
   ngOnInit() {
     this.myForm = new FormGroup({
     // tslint:disable-next-line: max-line-length
@@ -28,9 +27,6 @@ export class AddProductComponent implements OnInit {
     description: new FormControl('', [Validators.required, Validators.maxLength(50)]),
     isAvailable: new FormControl('', [Validators.requiredTrue])
   });
-    // if (this.myForm.get('id').value) {
-    //   this.Productlist.update()
-    // }
     this.route.params.subscribe(params => {
       this.id = +params.id;
       if (this.id) {
@@ -44,7 +40,6 @@ export class AddProductComponent implements OnInit {
             price: this.data.price,
             isAvailable: this.data.isAvailable
           });
-          // console.log(this.data.title);
         });
       }
     });
@@ -52,15 +47,23 @@ export class AddProductComponent implements OnInit {
 
     onSubmit() {
       console.log(this.myForm);
-      // console.log(this.myForm.get('id').value);
+      // console.log(this.myForm.get('id').value;
       if (this.id) {
-        this.Productlist.updatedata(this.myForm.value, this.id).subscribe(Response => console.log(Response));
-      // this.Productlist.addProducts(this.myForm.patchValue(this.item));
-      } else {
-        this.Productlist.addProducts(this.myForm.value).subscribe(Response => console.log(Response));
-      }
+        this.Productlist.updatedata(this.myForm.value, this.id).subscribe(Response => {
+        alert('Product added successfully');
+        this.router.navigate(['']);
+      });
+     } else {
+        this.Productlist.addProducts(this.myForm.value).subscribe(Response => {
+        alert('Product edited successfully');
+        this.router.navigate(['']);
+      });
     }
+  }
     del() {
-      return this.Productlist.dele(this.id).subscribe(Response => console.log(Response));
+      alert('Deleted successfully');
+      return this.Productlist.dele(this.id).subscribe(Response => {
+        this.router.navigate(['']);
+      });
     }
   }

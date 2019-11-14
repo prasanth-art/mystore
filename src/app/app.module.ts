@@ -15,7 +15,8 @@ const appRoutes: Routes = [
   { path: '', component: SaleComponent },
   { path: 'add-product', component: AddProductComponent },
   { path: 'add-product/:id', component: AddProductComponent },
-  { path: 'ddd', component: DetailsComponent },
+  // { path: 'details/:id', component: DetailsComponent },
+  // { path: 'ddd', component: DetailsComponent },
 ];
 
 @NgModule({
